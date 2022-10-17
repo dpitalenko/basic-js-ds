@@ -7,7 +7,7 @@ const { Node } = require('../extensions/list-tree.js');
 * using Node from extensions
 */
 class BinarySearchTree {
-  
+
   constructor() {
     this.root = null;
   }
@@ -47,12 +47,11 @@ class BinarySearchTree {
     return search(this.root, data);
 
     function search(node, data) {
-      if(!node) return false; //если узла нет, то возвращаем false
+      if(!node) return null;
 
-      if(node.data == data) return node.data; //если нашла нужный узел, то возвращаем ttur
-      //else return null;
+      if(node.data == data) return node;
 
-      return data < node.data ? search(node.left, data) : search(node.rigth, data); //если искомое значение меньше, чем текущий узел, то ищем в левом узле, иначе в правом
+      return data < node.data ? search(node.left, data) : search(node.rigth, data); 
     }
   }
 
@@ -112,6 +111,7 @@ class BinarySearchTree {
     return node.data;
   }
 }
+
 
 module.exports = {
   BinarySearchTree
